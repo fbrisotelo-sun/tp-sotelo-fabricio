@@ -3,6 +3,7 @@ const estado = document.getElementById('estado');
 const inputBusqueda = document.getElementById('input-busqueda');
 const filtroEstado = document.getElementById('filtro-estado');
 const btnBuscar = document.getElementById('btn-buscar');
+const btnLimpiar = document.getElementById('btn-limpiar');
 
 async function cargarPersonajes(nombre = '', estadoFiltro = '') {
   estado.textContent = 'Cargando personajes...';
@@ -57,6 +58,12 @@ inputBusqueda.addEventListener('keydown', (e) => {
 
 filtroEstado.addEventListener('change', () => {
   cargarPersonajes(inputBusqueda.value.trim(), filtroEstado.value);
+});
+
+btnLimpiar.addEventListener('click', () => {
+  inputBusqueda.value = '';
+  filtroEstado.value = '';
+  cargarPersonajes();
 });
 
 cargarPersonajes();
