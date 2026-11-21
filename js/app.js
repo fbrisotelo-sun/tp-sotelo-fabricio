@@ -1,20 +1,26 @@
 const contenedor = document.getElementById('contenedor-personajes');
 const estado = document.getElementById('estado');
 const inputBusqueda = document.getElementById('input-busqueda');
+const filtroEstado = document.getElementById('filtro-estado');
 const btnBuscar = document.getElementById('btn-buscar');
 
-async function cargarPersonajes(nombre = '') {
+async function cargarPersonajes(nombre = '', estadoFiltro = '') {
   estado.textContent = 'Cargando personajes...';
   contenedor.innerHTML = '';
 
-  const url = nombre
-    ? `https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(nombre)}`
+  const params = new URLSearchParams();
+  if (nombre) params.append('name', nombre);
+  if (estadoFiltro) params.append('status', estadoFiltro);
+
+  const query = params.toString();
+  const url = query
+    ? `https://rickandmortyapi.com/api/character/?${query}`
     : 'https://rickandmortyapi.com/api/character';
 
   try {
     const respuesta = await fetch(url);
     if (!respuesta.ok) {
-      throw new Error('No se encontraron personajes con ese nombre.');
+      throw new Error('No se encontraron personajes con ese criterio.');
     }
     const datos = await respuesta.json();
     estado.textContent = '';
@@ -38,13 +44,17 @@ function mostrarPersonajes(personajes) {
 }
 
 btnBuscar.addEventListener('click', () => {
-  cargarPersonajes(inputBusqueda.value.trim());
+  cargarPersonajes(inputBusqueda.value.trim(), filtroEstado.value);
 });
 
 inputBusqueda.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    cargarPersonajes(inputBusqueda.value.trim());
+    cargarPersonajes(inputBusqueda.value.trim(), filtroEstado.value);
   }
+});
+
+filtroEstado.addEventListener('change', () => {
+  cargarPersonajes(inputBusqueda.value.trim(), filtroEstado.value);
 });
 
 cargarPersonajes();
