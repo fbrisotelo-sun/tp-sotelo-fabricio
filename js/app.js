@@ -38,6 +38,8 @@ function mostrarPersonajes(personajes) {
         <h3>${p.name}</h3>
         <p>Estado: ${p.status}</p>
         <p>Especie: ${p.species}</p>
+        <p>Origen: ${p.origin.name}</p>
+        <p>Ubicación: ${p.location.name}</p>
       </div>
     </article>
   `).join('');
