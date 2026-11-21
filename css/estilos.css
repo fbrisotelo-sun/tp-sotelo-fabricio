@@ -27,16 +27,21 @@ header h1 {
 
 .buscador {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
 
-input {
+input,
+select {
   padding: 0.6rem 1rem;
   border-radius: 6px;
   border: 1px solid #334155;
   background: #0f172a;
   color: #fff;
+}
+
+input {
   width: 260px;
 }
 
@@ -79,6 +84,12 @@ main {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #334155;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #4ade80;
 }
 
 .card img {
