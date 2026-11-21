@@ -21,7 +21,7 @@ async function cargarPersonajes(nombre = '', estadoFiltro = '') {
   try {
     const respuesta = await fetch(url);
     if (!respuesta.ok) {
-      throw new Error('Sin resultados para la búsqueda o filtro seleccionado.');
+      throw new Error('No se encontraron personajes con esos filtros.');
     }
     const datos = await respuesta.json();
     estado.textContent = '';
