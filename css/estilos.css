@@ -1,116 +1,69 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-body {
-  background-color: #12161f;
-  color: #f1f5f9;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  background-color: #1e293b;
-  padding: 1.5rem;
+.encabezado {
   text-align: center;
-  border-bottom: 2px solid #22c55e;
+  padding: 2rem 1rem 1.25rem;
 }
 
-header h1 {
-  color: #4ade80;
-  margin-bottom: 1rem;
+.subtitulo {
+  opacity: 0.85;
+  margin-top: 0.4rem;
 }
 
-.buscador {
+.filtros {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
 }
 
-input,
-select {
-  padding: 0.6rem 1rem;
+.filtros input,
+.filtros button {
+  padding: 0.6rem 0.9rem;
   border-radius: 6px;
-  border: 1px solid #334155;
-  background: #0f172a;
-  color: #fff;
+  border: 1px solid #444;
+  font-size: 0.95rem;
 }
 
-input {
-  width: 260px;
-}
-
-button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  border: none;
-  background-color: #22c55e;
-  color: #052e16;
-  font-weight: bold;
+.filtros button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #4ade80;
-}
-
-main {
-  flex: 1;
+.contenedor {
   max-width: 1100px;
-  width: 100%;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
 }
 
-.estado {
-  text-align: center;
+.estado-busqueda {
   margin-bottom: 1rem;
-  color: #94a3b8;
+  font-weight: 500;
 }
 
-.grid {
+.grid-ubicaciones {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
-.card {
-  background-color: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #334155;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: #4ade80;
-}
-
-.card img {
-  width: 100%;
-  display: block;
-}
-
-.card-body {
+.tarjeta-ubicacion {
+  border: 1px solid #333;
+  border-radius: 8px;
   padding: 1rem;
 }
 
-.card-body h3 {
-  margin-bottom: 0.4rem;
-  color: #4ade80;
+.tarjeta-titulo {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.15rem;
 }
 
-footer {
-  background-color: #1e293b;
+.dato {
+  margin: 0.35rem 0;
+}
+
+.pie {
   text-align: center;
-  padding: 1rem;
-  border-top: 1px solid #334155;
-  color: #94a3b8;
+  padding: 1.25rem 1rem;
+  border-top: 1px solid #333;
   font-size: 0.9rem;
 }
